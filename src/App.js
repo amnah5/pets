@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import PetsList from "./component/PetsList";
+import SearchBar from "./component/SearchBar";
+
+import { Container, Row, Col } from "react-bootstrap";
 
 function App() {
+  const [query, setQuery] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="A">
+      <div className="b">
+        <SearchBar setQuery={setQuery} />
+        <Container>
+          <Row md={3}>
+            <PetsList query={query} />
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 }
